@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>Hello World JSF Example</title>
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+<h:body>
+	<h:outputLabel value="Bienvenidos al login"></h:outputLabel>
+
+	<h:form method="POST" id="formLogin">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Usuario: *" styleClass="label"></h:outputLabel>
+			<h:inputText id="txtUsuario" value="${login.usuario}" required="true"
+				pt:placeholder="Ingrese el usuario"
+				requiredMessage="Por favor ingrese el usuario "></h:inputText>
+			<h:outputLabel value="Contraseña *" styleClass="label"></h:outputLabel>
+			<h:inputSecret id="txtContrasenia" value="${login.contrasenia}"
+				pt:placeholder="Ingrese la contraseña" type="password"
+				required="true" requiredMessage="Por favor ingrese la contraseña"></h:inputSecret>
+			<h:commandButton value="Enviar" type="submit"
+				action="#{login.ingresar}"></h:commandButton>
+			<h:commandButton type="reset" value="Resetear"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
