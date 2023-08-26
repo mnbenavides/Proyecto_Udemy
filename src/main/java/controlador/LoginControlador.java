@@ -13,7 +13,7 @@ import javax.faces.context.FacesContext;
  * 
  */
 @ManagedBean(name = "login")
-public class loginControlador {
+public class LoginControlador {
 	/**
 	 * Usuario ingresado en el login
 	 */
@@ -64,6 +64,11 @@ public class loginControlador {
 		}
 	}
 
+	/**
+	 * Metodo que permite redireccionar a otra pagina
+	 * 
+	 * @param pagina
+	 */
 	public void redireccionar(String pagina) {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext(); // Permite redireccionar a otra
 																						// pagina

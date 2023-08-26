@@ -9,5 +9,39 @@
 </h:head>
 <h:body>
 	<h:outputLabel value="Bienvenidos"></h:outputLabel>
+	<h:dataTable id="tblEmpleados" var="empleado"
+		value="${empleado.empleados}" styleClass="order-table"
+		headerClass=".order-table-header-main, order-table-header"
+		rowClasses="order-table-odd-row,order-table-even-row,order-table-odd-row, order-table-even-row, order-table-odd-row, order-table-even-row">
+		<f:facet name="header">
+			<h:outputText value="Empleados" />
+		</f:facet>
+		<h:column>
+			<f:facet name="header">Primer Nombre</f:facet>
+			<h:outputText value="${empleado.primer_nombre}"
+				styleClass="row_table"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Segundo Nombre</f:facet>
+			<h:outputText value="${empleado.segundo_nombre}"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Primer Apellido</f:facet>
+			<h:outputText value="${empleado.primer_apellido}"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Segundo Apellido</f:facet>
+			<h:outputText value="${empleado.segundo_apellido}"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header" styleClass="header_table">Estatus</f:facet>
+			<h:outputText value="Activo" rendered="${empleado.estatus}"></h:outputText>
+			<h:outputText value="Inactivo" rendered="${!empleado.estatus}"></h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cargo</f:facet>
+			<h:outputText value="${empleado.cargo}"></h:outputText>
+		</h:column>
+	</h:dataTable>
 </h:body>
 </html>

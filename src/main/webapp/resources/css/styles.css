@@ -1,3 +1,37 @@
 .label {
 	color: blue;
 }
+
+.order-table-header {
+	text-align: center;
+	background-color: #fde9d9;
+	border-bottom: 1px solid rgb(255, 128, 64);
+	padding: 16px;
+	font-weight: bold;
+	font-size: large;
+}
+
+.order-table-header-main {
+	text-align: center;
+	background-color: #f79646;
+	border-bottom: 1px solid rgb(255, 128, 64);
+	padding: 16px;
+	font-weight: bold;
+	font-size: large;
+}
+
+.order-table-odd-row {
+	text-align: center;
+	background-color: #FFFFFf;
+	border-top: 1px solid #BBBBBB;
+	border-bottom: 1px solid rgb(255, 128, 64);
+
+}
+
+.order-table-even-row {
+	text-align: center;
+	background-color: #fde9d9;
+	border-top: 1px solid #BBBBBB;
+	border-bottom: 1px solid rgb(255, 128, 64);
+
+}
