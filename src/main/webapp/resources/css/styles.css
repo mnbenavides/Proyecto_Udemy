@@ -1,3 +1,14 @@
+body .ui-fluid .ui-input-icon-left, body .ui-fluid .ui-input-icon-right {
+    display: grid;
+}
+
+.ui-grid-row{
+	justify-content: center;
+}
+.center {
+	text-align: center;
+}
+
 .label {
 	color: blue;
 }

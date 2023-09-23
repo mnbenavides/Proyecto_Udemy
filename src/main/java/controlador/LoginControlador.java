@@ -57,11 +57,19 @@ public class LoginControlador {
 	public void ingresar() {
 		if (usuario.equals("desarrollador") && contrasenia.equals("123456789")) {
 			this.redireccionar("principal.xhtml");
-		} else {
-			String stringMessage = "Security has been incorrectly";
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, stringMessage, stringMessage);
+		} else if (usuario != null && contrasenia != null) {
+			String stringMessage = "";
+			FacesMessage message;
+			if (usuario.length() < 5) {
+				stringMessage = "El usuario debe contener minimo 4 carácteres";
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, stringMessage, "");
+			} else {
+				stringMessage = "Credenciales inválidas";
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, stringMessage, "");
+			}
 			FacesContext.getCurrentInstance().addMessage("formLogin.txtUsuario", message);
 		}
+
 	}
 
 	/**

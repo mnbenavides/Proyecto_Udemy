@@ -1,29 +1,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="UTF-8"></meta>
 	<title>Hello World JSF Example</title>
+	<meta name="viewport"
+		content="user-scalable=no, width=device-width, initial-scale=1">
+	</meta>
 	<h:outputStylesheet name="css/styles.css" />
 </h:head>
 <h:body>
-	<h:outputLabel value="Bienvenidos al login"></h:outputLabel>
-
 	<h:form method="POST" id="formLogin">
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Usuario: *" styleClass="label"></h:outputLabel>
-			<h:inputText id="txtUsuario" value="${login.usuario}" required="true"
-				pt:placeholder="Ingrese el usuario"
-				requiredMessage="Por favor ingrese el usuario "></h:inputText>
-			<h:outputLabel value="Contraseña *" styleClass="label"></h:outputLabel>
-			<h:inputSecret id="txtContrasenia" value="${login.contrasenia}"
-				pt:placeholder="Ingrese la contraseña" type="password"
-				required="true" requiredMessage="Por favor ingrese la contraseña"></h:inputSecret>
-			<h:commandButton value="Enviar" type="submit"
-				action="#{login.ingresar}"></h:commandButton>
-			<h:commandButton type="reset" value="Resetear"></h:commandButton>
-		</h:panelGrid>
+		<p:panel header="Inicio de Sesión" styleClass="center">
+			<div>
+				<p:graphicImage name="img/user.png" width="20%" />
+			</div>
+			<p:panelGrid id="pnlLogin" columns="3"
+				columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2" layout="grid"
+				styleClass="ui-panelgrid-blank ui-fluid">
+
+				<p:outputLabel value="Usuario:" for="txtUsuario"></p:outputLabel>
+				<p:inputText id="txtUsuario" value="${login.usuario}"
+					required="true" pt:placeholder="Ingrese el usuario"
+					requiredMessage="Por favor ingrese el usuario "></p:inputText>
+				<p:message for="txtUsuario" display="icon" />
+
+
+
+				<h:outputLabel value="Contraseña *" for="txtContrasenia"></h:outputLabel>
+				<p:password id="txtContrasenia" value="${login.contrasenia}"
+					pt:placeholder="Ingrese la contraseña" type="password"
+					required="true" requiredMessage="Por favor ingrese la contraseña"
+					toggleMask="true"></p:password>
+				<p:message for="txtContrasenia" display="icon" />
+
+				<h:outputLabel></h:outputLabel>
+				<p:messages id="msg" closable="true">
+					<p:autoUpdate />
+				</p:messages>
+				<h:outputLabel></h:outputLabel>
+				
+				<p:commandButton value="Ingresar" type="submit" id="btnSubmit"
+					action="#{login.ingresar}" styleClass="ui-button-raised"
+					update="pnlLogin, msg"></p:commandButton>
+
+			</p:panelGrid>
+
+		</p:panel>
+
 	</h:form>
 </h:body>
 </html>
